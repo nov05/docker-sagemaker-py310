@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  python-dev:
+    image: sagemaker_py310     # Name of the Docker image built from the Dockerfile
+    build: 
+      context: .               # Build the image from the current directory
+      dockerfile: Dockerfile   # Specify the Dockerfile (optional, default is 'Dockerfile')
+    volumes:
+      - .:/workspace           # Mount the current directory to /workspace in the container
+    working_dir: /workspace    # Set the working directory inside the container
+    stdin_open: true           # Keep STDIN open to allow interaction
+    tty: true                  # Allocate a pseudo-TTY for interactive mode
